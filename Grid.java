@@ -39,8 +39,10 @@ public class Grid {
             }
         }
 
-        for (Integer[] coordinate : startConfig) {
-            gridState[coordinate[0]][coordinate[1]] = true;
+        if (startConfig != null && startConfig.size() != 0) {
+            for (Integer[] coordinate : startConfig) {
+                gridState[coordinate[0]][coordinate[1]] = true;
+            }
         }
 
         for (int i = 0; i < GRID_WIDTH + 2; i++) {
@@ -81,8 +83,10 @@ public class Grid {
             }
         }
         Grid newGrid = new Grid(config);
-        return newGrid;
+        return newGrid.updateGrid();
     }
+
+
 
     public static void main(String[] args) {
         ArrayList<Integer[]> start = new ArrayList<>();
@@ -90,7 +94,7 @@ public class Grid {
         Integer[] array1 = {16, 16};
         Integer[] array2 = {17, 15};
         Integer[] array3 = {17, 16};
-        Integer[] array4 = {16,17};
+        Integer[] array4 = {16, 17};
         start.add(array);
         start.add(array1);
         start.add(array2);
